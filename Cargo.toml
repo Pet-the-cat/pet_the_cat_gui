@@ -1,0 +1,19 @@
+[package]
+name = "pet_the_cat_gui"
+version = "0.1.0"
+authors = ["Tom Olivier <contact.tom60@proton.me>"]
+license = "MIT"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+iced.features = ["svg", "tokio"]
+pet_the_cat = { git = "https://github.com/Pet-the-cat/pet_the_cat", tag = "v0.1.0" }
+rust-i18n = "2.2.1"
+serde = { version = "1.0", features = ["derive"] }
+sys-locale = "0.3.1"
+toml = "0.8.8"
+
+[dev-dependencies]
+iced.features = ["debug"]
