@@ -11,6 +11,7 @@ env:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -19,22 +20,4 @@ jobs:
       run: cargo build --verbose
     - name: Run tests
       run: cargo test --verbose
-    - name: Upload artifact
-      uses: actions/upload-artifact@v3    
-      with:
-        name: pet-the-cat-gui_artifact
-        path: /home/runner/work/pet_the_cat_gui/pet_the_cat_gui/target/debug/pet_the_cat_gui
-
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-    - name: Download artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: pet-the-cat-gui_artifact
-    - name: Test artifact download
-      run: ls -R
 
