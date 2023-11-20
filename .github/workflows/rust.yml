@@ -31,6 +31,6 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@v3
       with:
-        name: target/debug/pet_the_cat_gui
+        name: pet_the_cat_gui
     - name: Test artifact download
       run: ls -R
