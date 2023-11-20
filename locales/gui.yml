@@ -1,0 +1,24 @@
+_version: 2
+loading:
+  en: "Loading..."
+  fr: "Chargement..."
+stats:
+  en: "\n\
+      Cat petted: %{cat_petted}\n\
+      \n\
+      Multiplier: %{multiplier}\n\
+      Petting machine: %{petting_machine}"
+  fr: "\n\
+      Chat caressé : %{cat_petted}\n\
+      \n\
+      Multiplicateur : %{multiplier}\n\
+      Machine à caresser : %{petting_machine}"
+pet:
+  en: "Pet!"
+  fr: "Caresser !"
+buy_multiplier:
+  en: "Buy a multiplier."
+  fr: "Acheter un multiplicateur."
+buy_petting_machine:
+  en: "Buy a petting machine."
+  fr: "Acheter une machine à caresser."

@@ -40,7 +40,7 @@ impl Application for App {
     }
 
     fn title(&self) -> String {
-        String::from("Pet the cat!")
+        t!("title")
     }
 
     fn update(&mut self, message: Message) -> Command<Message> {
@@ -115,13 +115,13 @@ impl Application for App {
     fn view(&self) -> Element<Message> {
         //self.game_view.view().map(Message::EventOccurred)
 
-        let title = text("Pet the cat!")
+        let title = text(t!("title"))
                     .width(Length::Fill)
                     .size(50)
                     .horizontal_alignment(alignment::Horizontal::Center);
 
         if self.loaded == false {
-            let loading_text = text("Loading...")
+            let loading_text = text(t!("loading"))
                     .width(Length::Fill)
                     .size(30)
                     .horizontal_alignment(alignment::Horizontal::Center);
@@ -129,25 +129,26 @@ impl Application for App {
             return column!(title, loading_text).into();
         }
         
-        let stats = text(
-                        format!("Cat count: {}\n\nMultiplier: {}\nPetting machine: {}",
-                        self.game.cat_petted, self.game.multiplier, self.game.petting_machine))
+        let stats = text(t!("stats",
+                        cat_petted = self.game.cat_petted,
+                        multiplier = self.game.multiplier,
+                        petting_machine = self.game.petting_machine))
                     .width(Length::Fill)
                     .size(30)
                     .horizontal_alignment(alignment::Horizontal::Center);
 
-        let pet_cat_button = button("Pet!")
+        let pet_cat_button = button(text(t!("pet")))
                     .on_press(Message::PetCat)
                     .style(theme::Button::Primary)
                     .padding(10);
 
-        let buy_multiplier_button = button("Buy multiplier")
+        let buy_multiplier_button = button(text(t!("buy_multiplier")))
                     .on_press(Message::BuyMultiplier)
                     .style(theme::Button::Secondary)
                     .padding(10);
 
         // TODO: Make this button disabled if the player doesn't have enough cat pets
-        let buy_petting_machine_button = button("Buy petting machine")
+        let buy_petting_machine_button = button(text(t!("buy_petting_machine")))
                     .on_press(Message::BuyPettingMachine)
                     // Style disabled button if the player doesn't have enough cat pets
                     .style(theme::Button::Secondary)
@@ -183,7 +184,7 @@ impl App {
 
                 if save_exists {
                     // If it does, but we can't read it, then something is wrong
-                    panic!("Failed to read save file, fix it or delete it and restart the game");
+                    panic!("{}", t!("fail_read_save"));
                 }
 
                 // If it doesn't, then create a new save file

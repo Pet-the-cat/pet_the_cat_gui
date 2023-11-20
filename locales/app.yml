@@ -1,0 +1,7 @@
+_version: 2
+title:
+  en: "Pet the cat!"
+  fr: "Caresse le chat !"
+fail_read_save:
+  en: "Failed to read save file, fix it or delete it and restart the game"
+  fr: "Impossible de lire le fichier de sauvegarde, corrigez-le ou supprimez-le et redémarrez le jeu"
