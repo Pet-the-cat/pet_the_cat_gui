@@ -1,6 +1,6 @@
 #![windows_subsystem = "windows"]
 use iced::{Settings, Application};
-use pet_the_cat_gui::{app::App, localization};
+use pet_the_cat_gui_iced::{app::App, localization};
 
 pub fn main() -> iced::Result {
     // Set the current localization to the system's locale.
